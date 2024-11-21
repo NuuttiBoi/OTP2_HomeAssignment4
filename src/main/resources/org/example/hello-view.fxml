@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextField?>
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Label id="welcomeText" fx:id="welcomeText">Please Enter Your Information</Label>
+    <HBox alignment="CENTER_LEFT" >
+        <padding>
+            <Insets left="20" right="20"/>
+        </padding>
+        <Label id="idText" fx:id="idText">ID:</Label>
+        <Label fx:id="nameText">Name:</Label>
+        <Label fx:id="ageText">Age:</Label>
+        <Label fx:id="cityText">City:</Label>
+    </HBox>
+    <HBox alignment="CENTER_RIGHT">
+        <TextField fx:id="idField"></TextField>
+        <TextField fx:id="nameField"></TextField>
+        <TextField fx:id="ageField"/>
+        <TextField fx:id="cityField"></TextField>
+    </HBox>
+    <HBox>
+        <Button fx:id="addButton" onAction="#handleAdd">Add</Button>
+        <Button>Update</Button>
+        <Button fx:id="readButton" onAction="#handleRead">Read</Button>
+        <Button fx:id="deleteButton" onAction="#handleDelete">Delete</Button>
+    </HBox>
+</VBox>

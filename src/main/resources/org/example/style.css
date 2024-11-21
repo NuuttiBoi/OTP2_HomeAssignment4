@@ -1,0 +1,12 @@
+#welcomeText{
+    font-size: large;
+    text-decoration-color: aqua;
+    background-color: blue;
+}
+#idText{
+    font-size: x-large;
+}
+
+*{
+    background-color: blue;
+}
