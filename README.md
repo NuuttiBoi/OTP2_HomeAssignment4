@@ -15,5 +15,5 @@
 3. Read
    - Searches the database for the name that the user has entered, and if a match is found, it displays the information of the user with the matching name. If there is multiple users with the same name, it displays the first one that is found.
 4. Update
-   - Updates that user with new data that the user has entered.   
+   - Updates that user with new data that the user has entered.   (Finds the user to updated according to the entered name, values that are updated are age and city)
 
