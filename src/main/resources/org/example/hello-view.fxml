@@ -14,24 +14,22 @@
     </padding>
 
     <Label id="welcomeText" fx:id="welcomeText">Please Enter Your Information</Label>
-    <HBox alignment="CENTER_LEFT" >
+    <VBox alignment="CENTER_LEFT" >
         <padding>
             <Insets left="20" right="20"/>
         </padding>
         <Label id="idText" fx:id="idText">ID:</Label>
+        <TextField fx:id="idField"/>
         <Label fx:id="nameText">Name:</Label>
+        <TextField fx:id="nameField"/>
         <Label fx:id="ageText">Age:</Label>
-        <Label fx:id="cityText">City:</Label>
-    </HBox>
-    <HBox alignment="CENTER_RIGHT">
-        <TextField fx:id="idField"></TextField>
-        <TextField fx:id="nameField"></TextField>
         <TextField fx:id="ageField"/>
-        <TextField fx:id="cityField"></TextField>
-    </HBox>
+        <Label fx:id="cityText">City:</Label>
+        <TextField fx:id="cityField"/>
+    </VBox>
     <HBox>
         <Button fx:id="addButton" onAction="#handleAdd">Add</Button>
-        <Button>Update</Button>
+        <Button fx:id="updateButton" onAction="#handleUpdate">Update</Button>
         <Button fx:id="readButton" onAction="#handleRead">Read</Button>
         <Button fx:id="deleteButton" onAction="#handleDelete">Delete</Button>
     </HBox>

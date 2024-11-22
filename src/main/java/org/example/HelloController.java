@@ -20,6 +20,7 @@ public class HelloController {
     public TextField ageField;
     public TextField cityField;
     public Button readButton;
+    public Button updateButton;
     private DbConnect dbConnect;
     private String userId, userName;
     private Alert alert;
@@ -28,21 +29,35 @@ public class HelloController {
         alert = new Alert(Alert.AlertType.INFORMATION);
     }
 
-    public void handleAdd(ActionEvent actionEvent) {
-        dbConnect.addUser();
+    public void handleAdd() {
+        userName = nameField.getText();
+        int age = Integer.parseInt(ageField.getText());
+        String city = cityField.getText();
+        dbConnect.addUser(userName, age, city);
         alert.setContentText("A new user was added successfully");
         alert.showAndWait();
     }
-    public void handleDelete(ActionEvent actionEvent){
+    public void handleDelete(){
         userName = nameField.getText();
         dbConnect.deleteUser(userName);
         alert.setContentText("A user was deleted successfully");
         alert.showAndWait();
     }
-    public void handleUpdate(ActionEvent actionEvent){
-        dbConnect.updateUser();
+    public void handleUpdate(){
+        userName = nameField.getText();
+        int newAge = Integer.parseInt(ageField.getText());
+        String newCity = cityField.getText();
+        if(userName != null && newCity != null){
+            dbConnect.updateUser(userName, newAge, newCity);
+            alert.setContentText("A users information was updated successfully");
+            alert.showAndWait();
+        } else {
+            alert.setContentText("You need to fill the required fields in order to update " +
+                    "a users information (name, age, city)");
+            alert.showAndWait();
+        }
     }
-    public void handleRead(ActionEvent actionEvent){
+    public void handleRead(){
         userName = nameField.getText();
         alert.setHeaderText("A user was found with the username " + userName + "!");
         alert.setContentText(dbConnect.readUser(userName));

@@ -2,6 +2,7 @@ package org.example;
 
 import com.mongodb.client.*;
 import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bson.json.JsonObject;
@@ -20,9 +21,9 @@ public class DbConnect {
             System.out.println(doc.toJson());
         }
     }
-    public void addUser(){
+    public void addUser(String userName, int age, String city){
         connectDb();
-        Document newUser = new Document("name","nuutti").append("age",24).append("city","Helsinki");
+        Document newUser = new Document("name",userName).append("age",age).append("city",city);
         collection.insertOne(newUser);
     }
 
@@ -32,7 +33,14 @@ public class DbConnect {
         collection.deleteOne(filter);
     }
 
-    public void updateUser() {
+    public void updateUser(String userName, int newAge, String newCity) {
+        connectDb();
+        Bson filter = Filters.eq("name",userName);
+        System.out.println(filter);
+        Bson updateAge = Updates.set("age",newAge);
+        Bson updateCity = Updates.set("city",newCity);
+        collection.updateOne(filter,updateAge);
+        collection.updateOne(filter,updateCity);
     }
 
     public String readUser(String userName) {
